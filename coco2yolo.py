@@ -3,11 +3,13 @@ import requests
 import sys
 
 # se menos que 3 da erro
-if len(sys.argv) < 3 :
+if len(sys.argv) < 4 :
     print("usage:")
-    print(str(sys.argv[0])+" annotation_json_path labels_dir_path category_name_1,category_name_2, ... ,category_name_Nth")
+    print(str(sys.argv[0])+" annotation_json_path labels_dir_path images_dir_path")
     print("or")
     print(str(sys.argv[0])+" annotation_json_path labels_dir_path --download images_dir_path category_name_1,category_name_2, ... ,category_name_Nth")
+    print("or")
+    print(str(sys.argv[0])+" annotation_json_path labels_dir_path images_dir_path category_name_1,category_name_2, ... ,category_name_Nth")
     sys.exit(0) 
 
 # se 3 faz tudo, mas nao baixa nada
@@ -22,20 +24,22 @@ cats = coco.loadCats(coco.getCatIds())
 
 categories=[cat['name'] for cat in cats]
 # se mais que 3...
-if len(sys.argv) > 3 :
+if len(sys.argv) > 4 :
     # verifica se deve baixar e 
     # faz somente as litadas
     if sys.argv[3] == '--download' :
         dl_img_flag = True
         images_dir_path = sys.argv[4]
-        if len(sys.argv[5].split(","))>1 or (sys.argv[5] != "all" and sys.argv[5] != "" ) :
-            categories = sys.argv[5].split(",")
+        if len(sys.argv)>5 :
+            if len(sys.argv[5].split(","))>1 or (sys.argv[5] != "all" ) :
+                categories = sys.argv[5].split(",")
     else:
-        if len(sys.argv[4].split(","))>1 or sys.argv[4] != "all" or sys.argv[4] != ""  :
+        if len(sys.argv[4].split(","))>1 or sys.argv[4] != "all" :
             categories = sys.argv[4].split(",")
         
 print('using '+str(len(categories))+' of 80 categories on coco')
 #nms=[cat['name'] for cat in cats]
+
 print('Selected COCO categories: \n{}\n'.format(','.join(categories)))
 
 
