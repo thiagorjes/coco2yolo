@@ -1,0 +1,35 @@
+Em português primeiro, pq brasileiro tbm merece respeito...
+Você pode copiar e usar! 
+Apenas lembre-se de nosso trabalho.
+Isto é um "fork" de: https://github.com/cindyweng/coco-to-yolo-by-category
+Mas eu fiz algumas melhorias...
+Agora, alguns argumentos são necessários.
+Para converter tudo, rode:
+python3 coco2yolo.py annotation_json_path labels_dir_path 
+Para converter algumas categorias, rode:
+python3 coco2yolo.py annotation_json_path labels_dir_path category_name_1,category_name_2,...,category_name_NTH
+Para converter e fazer o download das imagens, rode:
+python3 coco2yolo.py annotation_json_path labels_dir_path --download images_dir_path category_name_1,category_name_2,...,category_name_NTH
+
+Apenas precisa criar os diretorios das labels e das imagens primeiro
+e baixar o arquivo das anotacoes da coco (instances_train2017) no site cocodataset também.
+divirta-se.
+
+######################
+  
+You can copy e use!
+Just remember of our work.
+This is a fork of: https://github.com/cindyweng/coco-to-yolo-by-category
+But i did some improvements...
+Now, some arguments are needed.
+To convert everything,run:
+python3 coco2yolo.py annotation_json_path labels_dir_path 
+To convert some categories, run:
+python3 coco2yolo.py annotation_json_path labels_dir_path category_name_1,category_name_2,...,category_name_NTH
+To convert and download the images,run:
+python3 coco2yolo.py annotation_json_path labels_dir_path --download images_dir_path category_name_1,category_name_2,...,category_name_NTH
+
+Just create the label directory and images direcoty first
+and download annotations file (instances_train2017.json) from cocodataset site too.
+enjoy.
+
