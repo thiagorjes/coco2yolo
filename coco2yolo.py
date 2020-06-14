@@ -27,9 +27,13 @@ if len(sys.argv) > 3 :
     # faz somente as litadas
     if sys.argv[3] == '--download' :
         dl_img_flag = True
-        categories = sys.argv[4].split(",")
+        images_dir_path = sys.argv[4]
+        if len(sys.argv[5].split(","))>1 or sys.argv[5] != "all" or sys.argv[5] != ""  :
+            categories = sys.argv[5].split(",")
     else:
-        categories = sys.argv[3].split(",")
+        if len(sys.argv[4].split(","))>1 or sys.argv[4] != "all" or sys.argv[4] != ""  :
+            categories = sys.argv[4].split(",")
+        
 print('using '+str(len(categories))+' of 80 categories on coco')
 #nms=[cat['name'] for cat in cats]
 print('Selected COCO categories: \n{}\n'.format(','.join(categories)))
