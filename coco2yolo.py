@@ -28,7 +28,7 @@ if len(sys.argv) > 3 :
     if sys.argv[3] == '--download' :
         dl_img_flag = True
         images_dir_path = sys.argv[4]
-        if len(sys.argv[5].split(","))>1 or sys.argv[5] != "all" or sys.argv[5] != ""  :
+        if len(sys.argv[5].split(","))>1 or (sys.argv[5] != "all" and sys.argv[5] != "" ) :
             categories = sys.argv[5].split(",")
     else:
         if len(sys.argv[4].split(","))>1 or sys.argv[4] != "all" or sys.argv[4] != ""  :
