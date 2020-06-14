@@ -59,8 +59,8 @@ for catid in catIds:
     imgIdList.extend(coco.getImgIds(catIds=catid))
 imgIdset = set(imgIdList)
 imgIds = list(imgIdset)
-images = coco.loadImgs(imgIds)
-
+#images = coco.loadImgs(imgIds) #somente imagens que tem annotations
+images = coco.loadImgs(coco.getImgIds()) # todas as imagens
 
 # baixa as imagens com as categorias selecionadas
 # necessário criar o diretório ou vai dar erro
