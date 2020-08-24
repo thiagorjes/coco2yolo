@@ -23,6 +23,7 @@ coco = COCO(annotation_json_path)
 cats = coco.loadCats(coco.getCatIds())
 
 categories=[cat['name'] for cat in cats]
+print(categories)
 # se mais que 3...
 if len(sys.argv) > 4 :
     # verifica se deve baixar e 
@@ -51,7 +52,7 @@ def truncate(n, decimals=0):
 catIds = []
 # seleciona as category_ids das categorias selecionadas
 for catnm in categories:
-    catIds.extend(coco.getCatIds(catNms=catnm))
+    catIds.extend(coco.getCatIds(catNms=[str(catnm)]))
 
 imgIdList = []
 for catid in catIds:
@@ -80,7 +81,7 @@ for im in images:
     
     annIds = []
     for catid in catIds:
-        annIds.extend(coco.getAnnIds(imgIds=im['id'], catIds=catid, iscrowd=None))
+        annIds.extend(coco.getAnnIds(imgIds=im['id'], catIds=catid, iscrowd=False))
     anns = coco.loadAnns(annIds)
     
     filename = im['file_name'].replace(".jpg", ".txt")
